@@ -1,0 +1,90 @@
+[
+    {
+        "data": {
+            "text": "甲方：北京星辰科技有限公司\n乙方：大华商贸有限责任公司\n合同金额：50000元\n签订日期：2025-03-12\n合同内容：甲乙双方就软件采购事宜达成如下协议，服务周期一年。",
+            "sample_id": "S001",
+            "case_type": "正常样本"
+        },
+        "predictions": [
+            {
+                "model_version": "mock_model_v1",
+                "result": [
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["甲方名称"],"start":3,"end":15}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["乙方名称"],"start":19,"end":31}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["合同金额"],"start":35,"end":41}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["签订日期"],"start":45,"end":55}}
+                ]
+            }
+        ]
+    },
+    {
+        "data": {
+            "text": "甲方：南方电子，乙方：恒信工贸\n合同金鹅：【空白】\n签订时间：二零二五年五月八日",
+            "sample_id": "S002",
+            "case_type": "边界样本（字段缺失+错别字）"
+        },
+        "predictions": [
+            {
+                "model_version": "mock_model_v1",
+                "result": [
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["甲方名称"],"start":3,"end":7}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["乙方名称"],"start":11,"end":15}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["合同金额"],"start":17,"end":22}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["签订日期"],"start":31,"end":42}}
+                ]
+            }
+        ]
+    },
+    {
+        "data": {
+            "text": "甲方：%%宏远集团\n乙|方：盛达物流\n签订日期：2025/08/09\n@@@@@@",
+            "sample_id": "S003",
+            "case_type": "脏数据样本（特殊符号噪声）"
+        },
+        "predictions": [
+            {
+                "model_version": "mock_model_v1",
+                "result": [
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["甲方名称"],"start":4,"end":9}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["乙方名称"],"start":14,"end":19}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["签订日期"],"start":24,"end":34}}
+                ]
+            }
+        ]
+    },
+    {
+        "data": {
+            "text": "甲方：启新数字技术有限公司\n乙方：无\n合同金额：128000元\n签订日期：2025-06-01\n本协议仅甲方单方出具，乙方暂未签约。",
+            "sample_id": "S004",
+            "case_type": "边界样本（乙方缺失）"
+        },
+        "predictions": [
+            {
+                "model_version": "mock_model_v1",
+                "result": [
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["甲方名称"],"start":3,"end":15}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["合同金额"],"start":20,"end":27}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["签订日期"],"start":31,"end":41}}
+                ]
+            }
+        ]
+    },
+    {
+        "data": {
+            "text": "合同\n立合同人\n甲方：蓝海实业有限公司，地址：北京市朝阳区\n乙方：顺通供应链\n金额：柒万贰仟元整\n签约时间：2025年2月10日",
+            "sample_id": "S005",
+            "case_type": "正常样本（中文大写金额）"
+        },
+        "predictions": [
+            {
+                "model_version": "mock_model_v1",
+                "result": [
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["甲方名称"],"start":7,"end":17}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["乙方名称"],"start":32,"end":38}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["合同金额"],"start":42,"end":50}},
+                    {"from_name":"label","to_name":"text","type":"labels","value":{"labels":["签订日期"],"start":54,"end":64}}
+                ]
+            }
+        ]
+    }
+]

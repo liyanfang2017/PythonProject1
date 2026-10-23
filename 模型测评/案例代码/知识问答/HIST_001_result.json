@@ -1,0 +1,50 @@
+{
+  "test_case_id": "HIST_001",
+  "evaluation_timestamp": "2026-10-20T17:13:06.333909",
+  "judge_model": "KnowledgeMockJudge",
+  "scores": {
+    "accuracy": 5.0,
+    "coverage": 5.0,
+    "clarity": 5.0,
+    "no_hallucination": 5.0
+  },
+  "reasoning": {
+    "facts_check": [
+      {
+        "fact": "1945",
+        "met": true
+      },
+      {
+        "fact": "美国|USA",
+        "met": true
+      },
+      {
+        "fact": "苏联|USSR",
+        "met": true
+      },
+      {
+        "fact": "英国|UK",
+        "met": true
+      },
+      {
+        "fact": "中国|China",
+        "met": true
+      },
+      {
+        "fact": "德国|Germany",
+        "met": true
+      },
+      {
+        "fact": "日本|Japan",
+        "met": true
+      }
+    ],
+    "hallucinations_found": [],
+    "summary": "事实覆盖率 100%，发现 0 个幻觉点。"
+  },
+  "final_verdict": {
+    "overall_score": 5.0,
+    "grade": "优秀",
+    "suggestions": "回答准确且全面。"
+  }
+}

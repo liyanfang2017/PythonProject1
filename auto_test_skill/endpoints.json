@@ -1,0 +1,1213 @@
+[
+  {
+    "path": "/api/v1/health",
+    "method": "GET",
+    "summary": "健康检查（最简单）",
+    "operation_id": "health_api_v1_health_get",
+    "tags": [
+      "health"
+    ],
+    "parameters": [],
+    "request_body": null,
+    "responses": {
+      "200": {}
+    },
+    "security": [],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/health/healthtest",
+    "method": "GET",
+    "summary": "Healthtest",
+    "operation_id": "healthtest_api_v1_health_healthtest_get",
+    "tags": [
+      "health"
+    ],
+    "parameters": [],
+    "request_body": null,
+    "responses": {
+      "200": {}
+    },
+    "security": [],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/auth/register",
+    "method": "POST",
+    "summary": "注册",
+    "operation_id": "auth_register_api_v1_auth_register_post",
+    "tags": [
+      "auth"
+    ],
+    "parameters": [],
+    "request_body": {
+      "properties": {
+        "username": {
+          "type": "string",
+          "maxLength": 64,
+          "minLength": 3,
+          "title": "Username",
+          "description": "用户名，3-64 字符"
+        },
+        "password": {
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 8,
+          "title": "Password",
+          "description": "密码，至少 8 位且含字母与数字"
+        }
+      },
+      "type": "object",
+      "required": [
+        "username",
+        "password"
+      ],
+      "title": "RegisterIn"
+    },
+    "responses": {
+      "201": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/auth/login",
+    "method": "POST",
+    "summary": "登录（签发双令牌）",
+    "operation_id": "auth_login_api_v1_auth_login_post",
+    "tags": [
+      "auth"
+    ],
+    "parameters": [],
+    "request_body": {
+      "properties": {
+        "username": {
+          "type": "string",
+          "title": "Username"
+        },
+        "password": {
+          "type": "string",
+          "title": "Password"
+        }
+      },
+      "type": "object",
+      "required": [
+        "username",
+        "password"
+      ],
+      "title": "LoginIn"
+    },
+    "responses": {
+      "200": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/auth/refresh",
+    "method": "POST",
+    "summary": "刷新令牌（轮换）",
+    "operation_id": "auth_refresh_api_v1_auth_refresh_post",
+    "tags": [
+      "auth"
+    ],
+    "parameters": [],
+    "request_body": {
+      "properties": {
+        "refresh_token": {
+          "type": "string",
+          "title": "Refresh Token"
+        }
+      },
+      "type": "object",
+      "required": [
+        "refresh_token"
+      ],
+      "title": "RefreshIn"
+    },
+    "responses": {
+      "200": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/auth/logout",
+    "method": "POST",
+    "summary": "登出（撤销 refresh token）",
+    "operation_id": "auth_logout_api_v1_auth_logout_post",
+    "tags": [
+      "auth"
+    ],
+    "parameters": [],
+    "request_body": {
+      "properties": {
+        "refresh_token": {
+          "type": "string",
+          "title": "Refresh Token"
+        }
+      },
+      "type": "object",
+      "required": [
+        "refresh_token"
+      ],
+      "title": "RefreshIn"
+    },
+    "responses": {
+      "200": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/auth/me",
+    "method": "GET",
+    "summary": "当前用户信息",
+    "operation_id": "auth_me_api_v1_auth_me_get",
+    "tags": [
+      "auth"
+    ],
+    "parameters": [],
+    "request_body": null,
+    "responses": {
+      "200": {}
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/todos/list",
+    "method": "GET",
+    "summary": "待办列表（分页 + 状态筛选 + 关键词搜索）",
+    "operation_id": "todos_list_api_v1_todos_list_get",
+    "tags": [
+      "todos"
+    ],
+    "parameters": [
+      {
+        "name": "q",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "description": "关键词搜索标题/描述",
+        "enum": null,
+        "example": null,
+        "default": null,
+        "format": ""
+      },
+      {
+        "name": "status",
+        "in": "query",
+        "type": "string",
+        "required": false,
+        "description": "",
+        "enum": null,
+        "example": null,
+        "default": null,
+        "format": ""
+      },
+      {
+        "name": "page",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "description": "",
+        "enum": null,
+        "example": null,
+        "default": 1,
+        "format": ""
+      },
+      {
+        "name": "page_size",
+        "in": "query",
+        "type": "integer",
+        "required": false,
+        "description": "",
+        "enum": null,
+        "example": null,
+        "default": 20,
+        "format": ""
+      }
+    ],
+    "request_body": null,
+    "responses": {
+      "200": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/todos/create",
+    "method": "POST",
+    "summary": "创建待办",
+    "operation_id": "todos_create_api_v1_todos_create_post",
+    "tags": [
+      "todos"
+    ],
+    "parameters": [],
+    "request_body": {
+      "properties": {
+        "title": {
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Title"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "maxLength": 512
+        },
+        "due_at": {
+          "title": "Due At",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "type": "object",
+      "required": [
+        "title"
+      ],
+      "title": "TodoCreate"
+    },
+    "responses": {
+      "201": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/todos/{todo_id}",
+    "method": "GET",
+    "summary": "待办详情",
+    "operation_id": "todos_detail_api_v1_todos__todo_id__get",
+    "tags": [
+      "todos"
+    ],
+    "parameters": [
+      {
+        "name": "todo_id",
+        "in": "path",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "enum": null,
+        "example": null,
+        "default": null,
+        "format": ""
+      }
+    ],
+    "request_body": null,
+    "responses": {
+      "200": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/todos/{todo_id}",
+    "method": "PUT",
+    "summary": "更新待办",
+    "operation_id": "todos_update_api_v1_todos__todo_id__put",
+    "tags": [
+      "todos"
+    ],
+    "parameters": [
+      {
+        "name": "todo_id",
+        "in": "path",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "enum": null,
+        "example": null,
+        "default": null,
+        "format": ""
+      }
+    ],
+    "request_body": {
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "maxLength": 512
+        },
+        "status": {
+          "title": "Status",
+          "type": "string",
+          "pattern": "^(pending|done)$"
+        },
+        "due_at": {
+          "title": "Due At",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "type": "object",
+      "title": "TodoUpdate"
+    },
+    "responses": {
+      "200": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/todos/{todo_id}",
+    "method": "DELETE",
+    "summary": "删除待办",
+    "operation_id": "todos_delete_api_v1_todos__todo_id__delete",
+    "tags": [
+      "todos"
+    ],
+    "parameters": [
+      {
+        "name": "todo_id",
+        "in": "path",
+        "type": "integer",
+        "required": true,
+        "description": "",
+        "enum": null,
+        "example": null,
+        "default": null,
+        "format": ""
+      }
+    ],
+    "request_body": null,
+    "responses": {
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/orders",
+    "method": "POST",
+    "summary": "创建订单（复杂业务）",
+    "operation_id": "orders_create_api_v1_orders_post",
+    "tags": [
+      "orders"
+    ],
+    "parameters": [
+      {
+        "name": "Idempotency-Key",
+        "in": "header",
+        "type": "string",
+        "required": false,
+        "description": "",
+        "enum": null,
+        "example": null,
+        "default": null,
+        "format": ""
+      }
+    ],
+    "request_body": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "product_id": {
+                "type": "integer",
+                "title": "Product Id"
+              },
+              "quantity": {
+                "type": "integer",
+                "maximum": 999,
+                "minimum": 1,
+                "title": "Quantity"
+              }
+            },
+            "type": "object",
+            "required": [
+              "product_id",
+              "quantity"
+            ],
+            "title": "OrderItemIn"
+          },
+          "type": "array",
+          "minItems": 1,
+          "title": "Items"
+        }
+      },
+      "type": "object",
+      "required": [
+        "items"
+      ],
+      "title": "OrderCreate"
+    },
+    "responses": {
+      "201": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/orders/statistics",
+    "method": "GET",
+    "summary": "订单统计报表（聚合 + 缓存）",
+    "operation_id": "orders_statistics_api_v1_orders_statistics_get",
+    "tags": [
+      "orders"
+    ],
+    "parameters": [
+      {
+        "name": "from",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "enum": null,
+        "example": null,
+        "default": null,
+        "format": "date"
+      },
+      {
+        "name": "to",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "enum": null,
+        "example": null,
+        "default": null,
+        "format": "date"
+      }
+    ],
+    "request_body": null,
+    "responses": {
+      "200": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/files/upload",
+    "method": "POST",
+    "summary": "文件上传（multipart）",
+    "operation_id": "files_upload_api_v1_files_upload_post",
+    "tags": [
+      "files"
+    ],
+    "parameters": [],
+    "request_body": {
+      "properties": {
+        "file": {
+          "type": "string",
+          "contentMediaType": "application/octet-stream",
+          "title": "File"
+        }
+      },
+      "type": "object",
+      "required": [
+        "file"
+      ],
+      "title": "Body_files_upload_api_v1_files_upload_post"
+    },
+    "responses": {
+      "201": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/files/export/orders.csv",
+    "method": "GET",
+    "summary": "订单 CSV 流式导出",
+    "operation_id": "files_export_orders_api_v1_files_export_orders_csv_get",
+    "tags": [
+      "files"
+    ],
+    "parameters": [
+      {
+        "name": "from",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "enum": null,
+        "example": null,
+        "default": null,
+        "format": "date"
+      },
+      {
+        "name": "to",
+        "in": "query",
+        "type": "string",
+        "required": true,
+        "description": "",
+        "enum": null,
+        "example": null,
+        "default": null,
+        "format": "date"
+      }
+    ],
+    "request_body": null,
+    "responses": {
+      "200": {},
+      "422": {
+        "properties": {
+          "detail": {
+            "items": {
+              "properties": {
+                "loc": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array",
+                  "title": "Location"
+                },
+                "msg": {
+                  "type": "string",
+                  "title": "Message"
+                },
+                "type": {
+                  "type": "string",
+                  "title": "Error Type"
+                },
+                "input": {
+                  "title": "Input"
+                },
+                "ctx": {
+                  "type": "object",
+                  "title": "Context"
+                }
+              },
+              "type": "object",
+              "required": [
+                "loc",
+                "msg",
+                "type"
+              ],
+              "title": "ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      }
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/payments/webhook",
+    "method": "POST",
+    "summary": "支付回调接收（签名校验 + 幂等）",
+    "operation_id": "payments_webhook_api_v1_payments_webhook_post",
+    "tags": [
+      "payments"
+    ],
+    "parameters": [],
+    "request_body": null,
+    "responses": {
+      "200": {}
+    },
+    "security": [],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  },
+  {
+    "path": "/api/v1/orders/stream",
+    "method": "GET",
+    "summary": "订单状态实时推送（SSE）",
+    "operation_id": "orders_stream_api_v1_orders_stream_get",
+    "tags": [
+      "orders"
+    ],
+    "parameters": [],
+    "request_body": null,
+    "responses": {
+      "200": {}
+    },
+    "security": [
+      {
+        "HTTPBearer": []
+      }
+    ],
+    "deprecated": false,
+    "base_url": "http://localhost"
+  }
+]

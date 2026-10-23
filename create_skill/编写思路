@@ -1,0 +1,7 @@
+- Superpowers：需求脑暴、方案拆解、TDD 编码、代码评审、验收自检（管控开发流程，避免即兴写代码）
+- skill-creator：生成 Skill 契约 `SKILL.md`、标准化目录骨架，定义触发规则、入参、权限、输出约束
+整体流水线顺序：
+`Superpowers脑暴对齐需求 → skill-creator生成SKILL.md契约骨架 → Superpowers拆解开发计划 → Superpowers TDD开发内部逻辑脚本 → Superpowers代码评审 → 交付前多case自检 → 重载Skill、调用验证`
+
+
+

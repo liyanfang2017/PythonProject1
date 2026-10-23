@@ -1,0 +1,35 @@
+{
+  "test_case_id": "SCI_001",
+  "evaluation_timestamp": "2026-10-20T17:13:06.334330",
+  "judge_model": "KnowledgeMockJudge",
+  "scores": {
+    "accuracy": 1.0,
+    "coverage": 0.0,
+    "clarity": 3.0,
+    "no_hallucination": 1.0
+  },
+  "reasoning": {
+    "facts_check": [
+      {
+        "fact": "散射",
+        "met": false
+      },
+      {
+        "fact": "瑞利散射|Rayleigh",
+        "met": false
+      }
+    ],
+    "hallucinations_found": [
+      "反射",
+      "吸收",
+      "氧气分子",
+      "廷德尔效应"
+    ],
+    "summary": "事实覆盖率 0%，发现 4 个幻觉点。"
+  },
+  "final_verdict": {
+    "overall_score": 1.1,
+    "grade": "较差",
+    "suggestions": "存在幻觉，请修正事实错误。"
+  }
+}

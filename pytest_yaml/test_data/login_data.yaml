@@ -1,0 +1,14 @@
+- username: "admin"
+  password: "123456"
+  expect_success: true
+  expect_msg: "欢迎登录"
+
+- username: "admin"
+  password: "wrongpass"
+  expect_success: false
+  expect_msg: "密码错误"
+
+- username: ""
+  password: "123456"
+  expect_success: false
+  expect_msg: "用户名不能为空"

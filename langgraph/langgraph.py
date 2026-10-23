@@ -1,0 +1,4 @@
+#langgraph核心能力的使用，在软件测试方向使用主流场景，构建一个简易的agent设计，手动编写一个agent
+#构建langchain 构建一个简易agent，同时使用mcp 创建一个完整的demo示例
+#同时关联上langsmith查看日志信息
+#
